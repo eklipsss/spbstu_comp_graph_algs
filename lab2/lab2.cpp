@@ -223,11 +223,6 @@ HRESULT InitScene()
         { 0.5f * 1.5, -0.5f * 1.5, 0.0f, RGB(218, 112, 214)},
         { 0.0f * 1.5,  0.5f * 1.5, 0.0f, RGB(175, 238, 238)}
     };
-    //static const Vertex Vertices[] = {
-    //{-0.5f, -0.5f, 0.0f, RGB(240, 128, 128)},
-    //{ 0.5f, -0.5f, 0.0f, RGB(218, 112, 214)},
-    //{ 0.0f,  0.5f, 0.0f, RGB(175, 238, 238)}
-    //};
     static const USHORT Indices[] = {
         0, 2, 1
     };
@@ -258,9 +253,6 @@ HRESULT InitScene()
         if (SUCCEEDED(result))
         {
             result = SetResourceName(m_pVertexBuffer, "VertexBuffer");
-
-            //const std::string& name = "VertexBuffer";
-            //result = m_pVertexBuffer->SetPrivateData(WKPDID_D3DDebugObjectName, (UINT)name.length(), name.c_str());
         }
     }
 
@@ -284,9 +276,6 @@ HRESULT InitScene()
         if (SUCCEEDED(result))
         {
             result = SetResourceName(m_pIndexBuffer, "IndexBuffer");
-
-            //const std::string& name = "IndexBuffer";
-            //result = m_pIndexBuffer->SetPrivateData(WKPDID_D3DDebugObjectName, (UINT)name.length(), name.c_str());
         }
     }
 
@@ -305,10 +294,7 @@ HRESULT InitScene()
         result = g_pd3dDevice->CreateInputLayout(InputDesc, 2, pVertexShaderCode->GetBufferPointer(), pVertexShaderCode->GetBufferSize(), &m_pInputLayout);
         if (SUCCEEDED(result))
         {
-            //result = SetResourceName(m_pInputLayout, "InputLayout");
-
-            const std::string& name = "InputLayout";
-            result = m_pInputLayout->SetPrivateData(WKPDID_D3DDebugObjectName, (UINT)name.length(), name.c_str());
+            result = SetResourceName(m_pInputLayout, "InputLayout");
         }
     }
 
@@ -400,10 +386,6 @@ HRESULT CompileAndCreateShader(const std::wstring& path, ID3D11DeviceChild** ppS
     if (SUCCEEDED(result))
     {
         result = SetResourceName(*ppShader, WCSToMBS(path).c_str());
-
-        //const std::string& name = WCSToMBS(path).c_str();
-        //ID3D11DeviceChild* pResource = *ppShader;
-        //result = pResource->SetPrivateData(WKPDID_D3DDebugObjectName, (UINT)name.length(), name.c_str());
     }
 
     if (ppCode)
