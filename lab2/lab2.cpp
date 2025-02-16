@@ -595,9 +595,18 @@ void Terminate()
                 pDebug->ReportLiveDeviceObjects(D3D11_RLDO_DETAIL | D3D11_RLDO_IGNORE_INTERNAL);
             }
             pDebug->Release();
+
+            if (pDebug != nullptr)
+            {
+                pDebug->Release();
+                pDebug = nullptr;
+            }
         }
     }
 #endif 
-
-    g_pd3dDevice->Release();
+    if (g_pd3dDevice != nullptr)
+    {
+        g_pd3dDevice->Release();
+        g_pd3dDevice = nullptr;
+    }
 }
