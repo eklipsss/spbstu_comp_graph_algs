@@ -53,7 +53,11 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <None Include="SimpleColor.ps" />
-    <None Include="SimpleColor.vs" />
+    <None Include="SimpleColor.ps">
+      <Filter>Файлы заголовков</Filter>
+    </None>
+    <None Include="SimpleColor.vs">
+      <Filter>Файлы заголовков</Filter>
+    </None>
   </ItemGroup>
 </Project>

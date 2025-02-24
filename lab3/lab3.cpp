@@ -101,7 +101,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     if (configPos != std::wstring::npos)
     {
         dir.resize(configPos);
-        dir += szTitle;
+        //dir += szTitle;
         SetCurrentDirectory(dir.c_str());
     }
 
